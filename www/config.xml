@@ -3,14 +3,13 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "guide"
-        version   = "2.72">
+        id        = "bus"
+        version   = "1.0.0">
 
     <name>清大下一班小巴</name>
 
     <description>
-        到臺南，沒喝到牛肉湯，人生一大憾事！
-
+        清大生必備！
     </description>
 
     <author href="http://beefsouptn.blogspot.tw" email="jjlf23015888@gmail.com">
