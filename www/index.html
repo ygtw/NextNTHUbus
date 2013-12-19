@@ -58,23 +58,35 @@ function getTime (argument) {
                     $("#alerts").html("<p style='text-align:center'><br>週日不開車 <br> Sunday No Car<br><br>◢  崩╰ (〒皿〒)╯ 潰 ◣<br><br><br><p>");
                     return;
                 }
-                if(Alltime==1) $("#alerts").html("");
+                if(t_d==6 && Alltime==0){
+                      var       tempstring = "<tr>" ;
+
+                    for (var i = 0; i < table.length-1; i++) {
+
+                        if(t_d != table[i][3]) continue;
+
+                                            tempstring = tempstring +"<td>"+table[i][0]+"</td>" ;
+                           tempstring = tempstring +"<td>"+table[i][1]+"</td>" ;
+                   
+     tempstring = tempstring +"</tr>" ;
+
+                    }
+                    $("#tb").append(tempstring);
+
+                    $("#alerts").html("<p style='text-align:center'><br>週六沒什麼車 <br> Saturday Only few Cars<br><br>( ′-`)y-～<br><br><br><p>");
+
+
+
+                    return;
+                }
 
             for (var i = 0; i < table.length-1; i++) {
-
-
-
-
 
                    var                    tempstring = "<tr>" ;
 
                    var noCar=0;
 
                    var j = 0;
-
-
-
-
 
 
                    // console.log(table[i][j])
@@ -88,8 +100,7 @@ function getTime (argument) {
     
                     if( date2 > date1 || Alltime==1 )  
                     {//avaliable
-                       
-                         tempstring = tempstring +"<td>"+table[i][j]+"</td>" ;
+                         tempstring = tempstring +"<td >"+table[i][j]+"</td>" ;
 
 
 
@@ -347,12 +358,10 @@ td{ width: 50% }
 
 
 <table data-role="table" id="table-custom-2" data-mode="table" class="ui-body-a ui-shadow table-stripe ui-responsive" data-column-btn-theme="c" data-column-btn-text="" data-column-popup-theme="b">     <tbody id="tb"  class="ui-bar-h">
-        <div id="alerts"> </div>
-
-          
-
                     </tbody>
                   </table>
+                          <div id="alerts"> </div>
+
 
         </div><!-- /content -->
 
