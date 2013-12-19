@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="favicon.ico">
     <script src="jquery.js"></script>
     <script src="jquery.mobile-1.3.2.min.js"></script>
+    <script src="Std_StranJF.js"></script>
 
 
 
@@ -26,17 +27,33 @@ function allOn (value) {
 console.log("XD")
 }
 
+function Check_transCN()
+{
+    var language = window.navigator.userLanguage || window.navigator.language;
+
+if(language.indexOf("CN")>-1 )
+    StranBody(document)
+}
+
 $(document).ready(function() {
 
 if( /Android|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
  // some code..
  storelink="https://play.google.com/store/apps/details?id=bstn.next.nthu.bus";
 }
+var language = window.navigator.userLanguage || window.navigator.language;
+//alert(language); //works IE/SAFARI/CHROME/FF
+if( language.indexOf("TW")==-1 && language.indexOf("CN")==-1 ) 
+    $("#headertitle").text( "Next NTHU Bus" );
+
+Check_transCN();
+
 
 getTime();
 });
 
 function getTime (argument) {
+
 
     $.ajax({
         type: "GET",
@@ -100,7 +117,13 @@ function getTime (argument) {
     
                     if( date2 > date1 || Alltime==1 )  
                     {//avaliable
-                         tempstring = tempstring +"<td >"+table[i][j]+"</td>" ;
+
+                        if(table[i][3]==6 && Alltime) is6= "<br>週一 ~ 週六 <BR>Monday-Saturday"
+                            else is6="";
+
+
+                        if(table[i][2] !="s" && table[i][2] !="e")
+                         tempstring = tempstring +"<td >"+table[i][j]+is6+"</td>" ;
 
 
 
@@ -108,14 +131,14 @@ function getTime (argument) {
 
                                 if( table[i][2] =="s" )
                                 {
-                                 tempstring = tempstring +"<td style=' color:darkgrey'>"+" 機動發車開始<BR>BusyTime Start </td>" ;
+                                 tempstring = tempstring +"<td colspan='2' style=''>"+table[i][j]+"<br> 機動發車開始<BR>SmartTime Start </td>" ;
 
 
                                 } 
 
                                 if( table[i][2] =="e" )
                                 {
-                                 tempstring = tempstring +"<td style=' color:darkgrey'>"+" 尖峰時段結束<BR>BusyTime End </td>" ;
+                                 tempstring = tempstring +"<td colspan='2' style=''>"+table[i][j]+"<br> 機動時段結束<BR>SmartTime End </td>" ;
                                              
                                 } 
 
@@ -171,11 +194,18 @@ function getTime (argument) {
 
                     }
 
+
+
+
+
                     if(   noCar < 2) 
                     {
                          $("#tb").append(tempstring);
 
                     }
+
+                
+
 
 
 
@@ -191,8 +221,15 @@ function getTime (argument) {
                 $("#tb").html();
                 $("#alerts").html("<p style='text-align:center'><br>沒車了 No Car<br><br>◢  崩╰ (〒皿〒)╯ 潰 ◣<br><br><br><p>");}
 
+                        Check_transCN()
+
+
         }
-     });}
+
+     });
+
+
+}
 
 
 
@@ -333,7 +370,7 @@ td{ width: 50% }
     <div data-role="header" data-theme="a"   data-position="fixed" data-tap-toggle="false">
 <a href="dialog.html"  data-rel="dialog" data-transition="pop" class="ui-icon-alt" data-theme="d" data-icon="info" data-iconpos="notext" data-inline="true">Home - Black icons, no disc</a>
 
-        <h1 class="jqm-logo">清大小巴等等我</h1>
+        <h1 class="jqm-logo" id="headertitle">清大小巴等等我</h1>
 
  <a href="setting.html"  data-rel="dialog" data-transition="pop" class="ui-icon-alt" data-theme="d" data-icon="gear" data-iconpos="notext" data-inline="true">Home - Black icons, no disc</a>
 
@@ -354,7 +391,7 @@ td{ width: 50% }
     </div><!-- /header -->
 
 
-    <div id="content" data-role="content" class="jqm-content" style="margin-bottom:5%">
+    <div id="content" data-role="content" class="jqm-content" style="margin-bottom:10%">
 
 
 <table data-role="table" id="table-custom-2" data-mode="table" class="ui-body-a ui-shadow table-stripe ui-responsive" data-column-btn-theme="c" data-column-btn-text="" data-column-popup-theme="b">     <tbody id="tb"  class="ui-bar-h">
