@@ -142,6 +142,16 @@ function getTime (argument) {
      });}
 
 
+$(function() {
+    $('div[data-role="dialog"]').live('pagebeforeshow', function(e, ui) {
+    ui.prevPage.addClass("ui-dialog-background ");
+    });
+
+    $('div[data-role="dialog"]').live('pagehide', function(e, ui) {
+    $(".ui-dialog-background ").removeClass("ui-dialog-background ");
+    });
+});
+
 // This will parse a delimited string into an array of
 // arrays. The default delimiter is the comma, but this
 // can be overriden in the second argument.
@@ -259,7 +269,29 @@ body, .jqm-demos
 {
     border-top:0px;
 }
+
+
+
+.ui-dialog-background {
+    opacity: 0.5;
+    display: block !important;
+    -webkit-transition: opacity 0.5s ease-in;
+}
+
+.ui-dialog-background.pop.in {
+    opacity: 1;
+    -webkit-transition: opacity 0.5s ease-in;
+}
+
+.ui-dialog {
+    min-height: 100% !important;
+    background: transparent !important;
+}
 </style>
+
+
+
+
 </head>
 
 
