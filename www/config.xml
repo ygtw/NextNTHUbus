@@ -12,7 +12,7 @@
         清大生必備！
     </description>
 
-    <author href="http://beefsouptn.blogspot.tw" email="jjlf23015888@gmail.com">
+    <author href="ygtw.github.io" email="jjlf23015888@gmail.com">
         BSTN
     </author>
 
@@ -21,10 +21,7 @@
         The "device" permission is required for the 'deviceready' event.
     -->
     <feature name="http://api.phonegap.com/1.0/device" />
-    <feature name="http://api.phonegap.com/1.0/geolocation"/>
-    <feature name="http://api.phonegap.com/1.0/notification"/>
-
-
+ 
 
     <!--
         If you do not want any permissions to be added to your app, add the
@@ -61,10 +58,10 @@
 
     <!-- Define app icon for each platform. -->
     <icon src="icon.png" />
-    <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
-    <icon src="res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:density="mdpi" />
-    <icon src="res/icon/android/icon-72-hdpi.png"   gap:platform="android"    gap:density="hdpi" />
-    <icon src="res/icon/android/icon-96-xhdpi.png"  gap:platform="android"    gap:density="xhdpi" />
+    <icon src="icon/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
+    <icon src="icon/icon-48-mdpi.png"   gap:platform="android"    gap:density="mdpi" />
+    <icon src="icon/icon-72-hdpi.png"   gap:platform="android"    gap:density="hdpi" />
+    <icon src="icon/icon-96-xhdpi.png"  gap:platform="android"    gap:density="xhdpi" />
     <icon src="res/icon/blackberry/icon-80.png"     gap:platform="blackberry" />
     <icon src="res/icon/blackberry/icon-80.png"     gap:platform="blackberry" gap:state="hover"/>
   
@@ -84,10 +81,10 @@
     <!-- Define app splash screen for each platform. -->
 
 
-    <gap:splash src="res/screen/android/screen-ldpi-portrait.png"  gap:platform="android" gap:density="ldpi" />
-    <gap:splash src="res/screen/android/screen-mdpi-portrait.png"  gap:platform="android" gap:density="mdpi" />
-    <gap:splash src="res/screen/android/screen-hdpi-portrait.png"  gap:platform="android" gap:density="hdpi" />
-    <gap:splash src="res/screen/android/screen-xhdpi-portrait.png" gap:platform="android" gap:density="xhdpi" />
+    <gap:splash src="splash.9.png"  gap:platform="android" gap:density="ldpi" />
+    <gap:splash src="splash.9.png"  gap:platform="android" gap:density="mdpi" />
+    <gap:splash src="splash.9.png"  gap:platform="android" gap:density="hdpi" />
+    <gap:splash src="splash.9.png" gap:platform="android" gap:density="xhdpi" />
     <gap:splash src="res/screen/blackberry/screen-225.png"         gap:platform="blackberry" />
     <gap:splash src="splash.9.png"    gap:platform="ios"     width="320" height="480" />
     <gap:splash src="splash.9.png" gap:platform="ios"     width="640" height="960" />
