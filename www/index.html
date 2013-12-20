@@ -16,9 +16,27 @@
 
 <script type="text/javascript">
 
+var Alltime=0;
+var storelink="https://itunes.apple.com/us/app/qing-da-xia-yi-ban-xiao-ba/id785576310?ls=1&mt=8"
+function allOn (value) {
+   Alltime = value;  $("#tb").html(""); getTime();
+ 
+
+
+console.log("XD")
+}
+
 $(document).ready(function() {
 
+if( /Android|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+ // some code..
+ storelink="https://play.google.com/store/apps/details?id=bstn.next.nthu.bus";
+}
 
+getTime();
+});
+
+function getTime (argument) {
 
     $.ajax({
         type: "GET",
@@ -52,7 +70,7 @@ $(document).ready(function() {
                     var date1 = new Date(2000, 0, 1,  t_h, t_m); // 9:00 AM
                     var date2 = new Date(2000, 0, 1, t_Th, t_Tm); // 5:00 PM
     
-                    if( date2 > date1 )  
+                    if( date2 > date1 || Alltime==1 )  
                     {//avaliable
                        
                          tempstring = tempstring +"<td>"+table[i][j]+"</td>" ;
@@ -64,7 +82,7 @@ $(document).ready(function() {
                     }   
                     else
                     {
-                   tempstring = tempstring +"<td style=' color:dimgrey'>"+table[i][j]+"</td>" ;
+                   tempstring = tempstring +"<td style=' color:darkgrey'>"+table[i][j]+"</td>" ;
                     noCar++;
                         //  $("#tb").append("<td style='background:lightgray'>"+table[i][j]+"</td>");
 
@@ -85,7 +103,7 @@ $(document).ready(function() {
                     var date1 = new Date(2000, 0, 1,  t_h, t_m); // 9:00 AM
                     var date2 = new Date(2000, 0, 1, t_Th, t_Tm); // 5:00 PM
     
-                    if( date2 > date1 )  
+                    if( date2 > date1 || Alltime==1 )  
                     {//avaliable
                            tempstring = tempstring +"<td>"+table[i][j]+"</td>" ;
           
@@ -96,7 +114,7 @@ $(document).ready(function() {
                     }   
                     else
                     {
-                         tempstring = tempstring +"<td style=' color:dimgrey'>"+table[i][j]+"</td>" ;
+                         tempstring = tempstring +"<td style=' color:darkgrey'>"+table[i][j]+"</td>" ;
                                noCar++;
                         //  $("#tb").append("<td style='background:lightgray'>"+table[i][j]+"</td>");
 
@@ -121,8 +139,8 @@ $(document).ready(function() {
 
 
         }
-     });
-});
+     });}
+
 
 // This will parse a delimited string into an array of
 // arrays. The default delimiter is the comma, but this
@@ -223,7 +241,19 @@ border-bottom: 1px #787878 solid;
 
 body, .jqm-demos
 {
-//    font-size: xx-large;
+    font-size: large;
+-webkit-tap-highlight-color: none;
+
+}
+.ui-btn-active 
+{ 
+    color: #2F3E46 !important; 
+    background: none !important; 
+    background-color: none !important; 
+    text-shadow: 0 /*{a-bup-shadow-x}*/ 
+                 1px /*{a-bup-shadow-y}*/ 
+                 0 /*{a-bup-shadow-radius}*/ 
+                 #ffffff /*{a-bup-shadow-color}*/;  
 }
 .jqm-header
 {
@@ -236,13 +266,16 @@ body, .jqm-demos
 
 
 <body>
-<div data-role="page" class="jqm-demos" data-theme="a" >
+<div data-role="page" class="jqm-demos" data-theme="c" >
 
-    <div data-role="header"  data-position="fixed">
+    <div data-role="header" data-theme="c"   data-position="fixed">
+<a href="dialog.html"  data-rel="dialog" data-transition="pop" class="ui-icon-alt" data-theme="d" data-icon="info" data-iconpos="notext" data-inline="true">Home - Black icons, no disc</a>
 
         <h1 class="jqm-logo">清大小巴等等我</h1>
 
-<a href="dialog.html"  data-rel="dialog" data-transition="pop" class="ui-icon-alt" data-theme="c" data-icon="info" data-iconpos="notext" data-inline="true">Home - Black icons, no disc</a>
+ <a href="setting.html"  data-rel="dialog" data-transition="pop" class="ui-icon-alt" data-theme="d" data-icon="gear" data-iconpos="notext" data-inline="true">Home - Black icons, no disc</a>
+
+
 
     </div><!-- /header -->
 
@@ -252,7 +285,7 @@ body, .jqm-demos
 
           <div>
 
-<table data-role="table" id="table-custom-2" data-mode="table" class="ui-body-a ui-shadow table-stripe ui-responsive" data-column-btn-theme="b" data-column-btn-text="" data-column-popup-theme="b">
+<table data-role="table" id="table-custom-2" data-mode="table" class="ui-body-a ui-shadow table-stripe ui-responsive" data-column-btn-theme="c" data-column-btn-text="" data-column-popup-theme="b">
 
                     <thead>
                       <tr class="ui-bar-d">
@@ -261,7 +294,7 @@ body, .jqm-demos
 
                       </tr>
                     </thead>
-                    <tbody id="tb">
+                    <tbody id="tb"  class="ui-bar-c">
           
 
                     </tbody>
@@ -272,7 +305,7 @@ body, .jqm-demos
         </div><!-- /content -->
 
         <div data-role="footer" class="jqm-footer" >
-            <p>Next NTHU Bus.</p>
+            <p> Next NTHU Bus.</p>
         </div><!-- /footer -->
 
 
