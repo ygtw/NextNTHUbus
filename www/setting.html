@@ -9,6 +9,8 @@
 	<link rel="shortcut icon" href="favicon.ico">
 	<script src="jquery.js"></script>
 	<script src="jquery.mobile-1.3.2.min.js"></script>
+
+<style type="text/css"></style>
 </head>
 <body  data-theme="d">
 
@@ -21,11 +23,9 @@
 		<div data-role="content"  data-theme="d">
 <fieldset data-role="controlgroup">
     <legend>時間顯示 Time</legend>
-        <input type="radio" name="radio-choice-1"  onclick="allOn(0)" id="radio-choice-1" value="choice-1">
-        <label for="radio-choice-1">下一班 Next Bus</label>
-        <input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2">
-        <label for="radio-choice-2" onclick="allOn(1)" >全部班次 All Time</label>
-        	<a href="" data-role="button" data-rel="back"  data-theme="d">OK</a> 
+  
+        	<a href="" data-role="button" data-rel="back" onclick="allOn(0)"   data-theme="d">未發車 Next Bus</a> 
+<a href="" data-role="button" data-rel="back"  data-theme="d" onclick="allOn(1)" >全部班次 All Time</a> 
 
 </fieldset>
 

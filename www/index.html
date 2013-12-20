@@ -7,10 +7,12 @@
     <link rel="stylesheet"  href="jquery.mobile-1.3.2.min.css">
     <link rel="stylesheet" href="jqm-demos.css">
     <link rel="stylesheet" href="defaultTheme.css">
+
     <link rel="shortcut icon" href="favicon.ico">
     <script src="jquery.js"></script>
     <script src="jquery.mobile-1.3.2.min.js"></script>
     <script src="js/jquery.fixedheadertable.min.js"></script>
+<script type="text/javascript" src="jquery.mobile.simpledialog2.min.js"></script>
 
 
 
@@ -142,15 +144,6 @@ function getTime (argument) {
      });}
 
 
-$(function() {
-    $('div[data-role="dialog"]').live('pagebeforeshow', function(e, ui) {
-    ui.prevPage.addClass("ui-dialog-background ");
-    });
-
-    $('div[data-role="dialog"]').live('pagehide', function(e, ui) {
-    $(".ui-dialog-background ").removeClass("ui-dialog-background ");
-    });
-});
 
 // This will parse a delimited string into an array of
 // arrays. The default delimiter is the comma, but this
@@ -240,7 +233,21 @@ function CSVToArray(strData, strDelimiter) {
     return (arrData);
 }
 
-
+$(document).delegate('#opendialog', 'click', function() {
+  // NOTE: The selector can be whatever you like, so long as it is an HTML element.
+  //       If you prefer, it can be a member of the current page, or an anonymous div
+  //       like shown.
+  $('<div>').simpledialog2({
+   mode: 'blank',
+    headerText: 'Some Stuff',
+    headerClose: true,
+    fullScreen: true,
+    fullScreenForce: true,
+    blankContent : 
+      "<ul data-role='listview'><li>Some</li><li>List</li><li>Items</li></ul>"+
+      // NOTE: the use of rel="close" causes this button to close the dialog.
+      "<a rel='close' data-role='button' href='#'>Close</a>" })
+})
 </script>
 <style type="text/css">
 .ui-table th, .ui-table td {
@@ -252,6 +259,7 @@ border-bottom: 1px #787878 solid;
 body, .jqm-demos
 {
     font-size: large;
+    background-color: none;
 -webkit-tap-highlight-color: none;
 
 }
@@ -272,21 +280,6 @@ body, .jqm-demos
 
 
 
-.ui-dialog-background {
-    opacity: 0.5;
-    display: block !important;
-    -webkit-transition: opacity 0.5s ease-in;
-}
-
-.ui-dialog-background.pop.in {
-    opacity: 1;
-    -webkit-transition: opacity 0.5s ease-in;
-}
-
-.ui-dialog {
-    min-height: 100% !important;
-    background: transparent !important;
-}
 </style>
 
 
@@ -301,11 +294,11 @@ body, .jqm-demos
 <div data-role="page" class="jqm-demos" data-theme="c" >
 
     <div data-role="header" data-theme="c"   data-position="fixed">
-<a href="dialog.html"  data-rel="dialog" data-transition="pop" class="ui-icon-alt" data-theme="d" data-icon="info" data-iconpos="notext" data-inline="true">Home - Black icons, no disc</a>
+<a href="dialog.html"  data-rel="opendialog" data-transition="pop" class="ui-icon-alt" data-theme="d" data-icon="info" data-iconpos="notext" data-inline="true">Home - Black icons, no disc</a>
 
         <h1 class="jqm-logo">清大小巴等等我</h1>
 
- <a href="setting.html"  data-rel="dialog" data-transition="pop" class="ui-icon-alt" data-theme="d" data-icon="gear" data-iconpos="notext" data-inline="true">Home - Black icons, no disc</a>
+ <a href="setting.html"  data-rel="opendialog" data-transition="pop" class="ui-icon-alt" data-theme="d" data-icon="gear" data-iconpos="notext" data-inline="true">Home - Black icons, no disc</a>
 
 
 
@@ -317,7 +310,7 @@ body, .jqm-demos
 
           <div>
 
-<table data-role="table" id="table-custom-2" data-mode="table" class="ui-body-a ui-shadow table-stripe ui-responsive" data-column-btn-theme="c" data-column-btn-text="" data-column-popup-theme="b">
+<table data-role="table" id="table-custom-2" data-mode="table" class="ui-body-b ui-shadow table-stripe ui-responsive" data-column-btn-theme="c" data-column-btn-text="" data-column-popup-theme="b">
 
                     <thead>
                       <tr class="ui-bar-d">
