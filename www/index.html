@@ -234,21 +234,6 @@ function CSVToArray(strData, strDelimiter) {
     return (arrData);
 }
 
-$(document).delegate('#opendialog', 'click', function() {
-  // NOTE: The selector can be whatever you like, so long as it is an HTML element.
-  //       If you prefer, it can be a member of the current page, or an anonymous div
-  //       like shown.
-  $('<div>').simpledialog2({
-   mode: 'blank',
-    headerText: 'Some Stuff',
-    headerClose: true,
-    fullScreen: true,
-    fullScreenForce: true,
-    blankContent : 
-      "<ul data-role='listview'><li>Some</li><li>List</li><li>Items</li></ul>"+
-      // NOTE: the use of rel="close" causes this button to close the dialog.
-      "<a rel='close' data-role='button' href='#'>Close</a>" })
-})
 </script>
 <style type="text/css">
 .ui-table th, .ui-table td {
@@ -283,9 +268,6 @@ body, .jqm-demos
 .ui-page {
   -webkit-backface-visibility: hidden;
 }
-body{
-  overflow:hidden;
-}
 </style>
 
 
@@ -297,14 +279,26 @@ body{
 
 
 <body>
-<div data-role="page" class="jqm-demos" data-theme="c" >
+<div data-role="page" class="" data-theme="a" >
 
-    <div data-role="header" data-theme="c"   data-position="fixed">
-<a href="dialog.html"  data-rel="opendialog" data-transition="pop" class="ui-icon-alt" data-theme="d" data-icon="info" data-iconpos="notext" data-inline="true">Home - Black icons, no disc</a>
+    <div data-role="header" data-theme="a"   data-position="fixed">
+<a href="dialog.html"  data-rel="dialog" data-transition="pop" class="ui-icon-alt" data-theme="d" data-icon="info" data-iconpos="notext" data-inline="true">Home - Black icons, no disc</a>
 
         <h1 class="jqm-logo">清大小巴等等我</h1>
 
- <a href="setting.html"  data-rel="opendialog" data-transition="pop" class="ui-icon-alt" data-theme="d" data-icon="gear" data-iconpos="notext" data-inline="true">Home - Black icons, no disc</a>
+ <a href="setting.html"  data-rel="dialog" data-transition="pop" class="ui-icon-alt" data-theme="d" data-icon="gear" data-iconpos="notext" data-inline="true">Home - Black icons, no disc</a>
+
+
+<table data-role="table" id="table-custom-3" data-mode="table" class="ui-body-a ui-shadow table-stripe ui-responsive" data-column-btn-theme="c" data-column-btn-text="" data-column-popup-theme="b">
+
+                    <thead>
+                      <tr class="ui-bar-d">
+                                                <th  style="width:50%">校門口 Gate</th>
+                        <th>台積館 TSMC</th>
+
+                      </tr>
+                    </thead>
+                </table>
 
 
 
@@ -316,16 +310,7 @@ body{
 
           <div>
 
-<table data-role="table" id="table-custom-2" data-mode="table" class="ui-body-b ui-shadow table-stripe ui-responsive" data-column-btn-theme="c" data-column-btn-text="" data-column-popup-theme="b">
-
-                    <thead>
-                      <tr class="ui-bar-d">
-                                                <th>校門口 Gate</th>
-                        <th>台積館 TSMC</th>
-
-                      </tr>
-                    </thead>
-                    <tbody id="tb"  class="ui-bar-c">
+<table data-role="table" id="table-custom-2" data-mode="table" class="ui-body-a ui-shadow table-stripe ui-responsive" data-column-btn-theme="c" data-column-btn-text="" data-column-popup-theme="b">     <tbody id="tb"  class="ui-bar-h">
           
 
                     </tbody>
