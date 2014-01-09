@@ -59,6 +59,8 @@
             if (/Android|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                 // some code..
                 storelink = "https://play.google.com/store/apps/details?id=bstn.next.nthu.bus";
+                    $("#rate_b").attr("href",storelink);
+    $("#share_b").attr("href","https://www.facebook.com/sharer/sharer.php?u=https://play.google.com/store/apps/details?id=bstn.next.nthu.bus");
             }
             var language = window.navigator.userLanguage || window.navigator.language;
             //alert(language); //works IE/SAFARI/CHROME/FF
@@ -509,17 +511,8 @@
 
 
 <div id="about" data-role="page" class="jqm-home" data-theme="a"  data-url="pre-rendered-page">
-<script type="text/javascript">
-
-if( /Android/i.test(navigator.userAgent) ) {
-    $("#rate_b").attr("href",storelink);
-    $("#share_b").attr("href","https://www.facebook.com/sharer/sharer.php?u=https://play.google.com/store/apps/details?id=bstn.next.nthu.bus");
-}
-</script>   
+  
         <div data-role="header" data-theme="a"> 
-            <script type="text/javascript">   
-Check_transCN();
-</script>   
 
 <h2>關於 About</h2>
 
