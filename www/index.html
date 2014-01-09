@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable"
+  content="yes" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 
     <title>清大小巴等等我</title>
@@ -433,14 +435,16 @@
 
 
 <body>
-    <div data-role="page" class="jqm-home" data-theme="a">
+    <div id="main" data-role="page" class="jqm-home" data-theme="a">
 
         <div data-role="header" data-theme="a" data-position="fixed" data-tap-toggle="false">
-            <a href="dialog.html" data-rel="dialog" data-transition="pop" class="ui-icon-alt" data-theme="d" data-icon="info" data-iconpos="notext" data-inline="true">Home - Black icons, no disc</a>
+
+
+            <a href="#about" data-transition="slide" class="ui-icon-alt" data-theme="d" data-icon="info" data-iconpos="notext" data-inline="true">Home - Black icons, no disc</a>
 
             <h1 class="jqm-logo" id="headertitle">清大小巴等等我</h1>
 
-            <a href="setting.html" data-rel="dialog" data-transition="pop" class="ui-icon-alt" data-theme="d" data-icon="gear" data-iconpos="notext" data-inline="true">Home - Black icons, no disc</a>
+            <a href="#setting" data-transition="slide" class="ui-icon-alt" data-theme="d" data-icon="gear" data-iconpos="notext" data-inline="true">Home - Black icons, no disc</a>
 
 
             <table data-role="table" id="table-custom-3" data-mode="table" class="ui-body-a ui-shadow table-stripe ui-responsive" data-column-btn-theme="c" data-column-btn-text="" data-column-popup-theme="b">
@@ -458,6 +462,9 @@
 
         </div>
         <!-- /header -->
+
+
+
 
 
         <div id="content" data-role="content" class="jqm-content" style="margin-bottom:10%; padding-top:0px">
@@ -499,6 +506,65 @@
 
     </div>
     <!-- /page -->
+
+
+<div id="about" data-role="page" class="jqm-home" data-theme="a"  data-url="pre-rendered-page">
+<script type="text/javascript">
+
+if( /Android/i.test(navigator.userAgent) ) {
+    $("#rate_b").attr("href",storelink);
+    $("#share_b").attr("href","https://www.facebook.com/sharer/sharer.php?u=https://play.google.com/store/apps/details?id=bstn.next.nthu.bus");
+}
+</script>   
+        <div data-role="header" data-theme="a"> 
+            <script type="text/javascript">   
+Check_transCN();
+</script>   
+
+<h2>關於 About</h2>
+
+<a href="" data-icon="arrow-l" class="ui-icon-alt" data-iconpos="notext"  data-rel="back" data-inline="true" data-theme="d" data-transition="slide" ></a> 
+
+
+                    </div>
+
+        <div data-role="content" class="jqm-content" style="margin-bottom:10%; padding-top:0px">
+            <p>某一個夜晚，作者發現清大服科所有超多人都是iOS的愛好者，但是卻沒有一個iOS的校巴軟體，因此本軟體就在作者奮鬥5個小時後誕生了。</p>
+            <p>In a boring nitgt, the author found that we use iOS device in NTHU ISS. We need a school bus software, so the author write it in 5 hours. </p>
+            <a id="rate_b" href="https://itunes.apple.com/us/app/qing-da-xia-yi-ban-xiao-ba/id785576310?ls=1&mt=8" target="_blank" rel="external" data-role="button"  data-theme="c">喜歡請評分 Please Rate  </a>
+            <a id="share_b" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://itunes.apple.com/us/app/qing-da-xia-yi-ban-xiao-ba/id785576310?ls=1&mt=8"  rel="external" data-role="button"  data-theme="c">分享到FB<br>Share to Facebook </a>       
+               
+        </div>
+    </div>
+
+<!-- setting -->
+
+<div  id="setting" data-role="page" class="jqm-home" data-theme="a"  data-url="pre-rendered-page">
+<script type="text/javascript">   
+Check_transCN()
+</script>   
+        <div data-role="header" data-theme="a">
+<h2>設定 Setting</h2>
+
+<a href="" data-icon="arrow-l" class="ui-icon-alt" data-iconpos="notext"  data-rel="back" data-inline="true" data-theme="d" data-transition="slide" ></a> 
+
+                    </div>
+
+        <div data-role="content"  data-theme="a">
+<fieldset data-role="controlgroup">
+    <legend>時間顯示 Time</legend>
+  
+            <a href="" data-role="button" data-rel="back" onclick="allOn(0)"   data-theme="d">未發車 Next Bus</a> 
+<a href="" data-role="button" data-rel="back"  data-theme="d" onclick="allOn(1)" >全部班次 All Time</a> 
+
+</fieldset>
+
+        </div>
+    </div>
+
+
+
+
 </body>
 
 </html>
