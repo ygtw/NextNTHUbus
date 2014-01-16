@@ -503,19 +503,8 @@
 
 
     <script>
+        document.addEventListener("deviceready", onDeviceReady, false);
 
-
-function isPhoneGap() {
-    return (cordova || PhoneGap || phonegap) 
-    && /^file:\/{3}[^\/]/i.test(window.location.href) 
-    && /ios|iphone|ipod|ipad|android/i.test(navigator.userAgent);
-}
-
-if ( isPhoneGap() ) {
-  document.addEventListener("deviceready", onDeviceReady, false);
-} else {
-  onDeviceReady(); //this is the browser
-}
 
         function errorCallback_highAccuracy(error) {
             if (error.code == error.TIMEOUT) {
@@ -617,8 +606,6 @@ if ( isPhoneGap() ) {
 
 
 
-if(window.mobilecheck)
-{
         // web
         navigator.geolocation.getCurrentPosition(
             successCallback,
@@ -628,7 +615,7 @@ if(window.mobilecheck)
                 enableHighAccuracy: true
             }
         );
-}
+
 
     </script>
 
