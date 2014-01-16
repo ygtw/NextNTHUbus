@@ -54,6 +54,7 @@
     -->
 
     <plugin name="Geolocation" value="CDVLocation" />
+    <gap:plugin name="com.adobe.plugins.gaplugin" />
 
 
     <!-- Define app icon for each platform. -->
