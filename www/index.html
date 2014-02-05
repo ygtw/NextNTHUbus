@@ -16,6 +16,7 @@
 
     <meta name="apple-mobile-web-app-capable" content="yes">
 
+<script type="text/javascript" src="waterbug.js"> </script> 
 
     <link rel="shortcut icon" href="favicon.ico">
     <script src="jquery.js"></script>
@@ -23,9 +24,12 @@
     <script src="Std_StranJF.js"></script>
     <link rel="stylesheet" type="text/css" href="jquery.countdown.css">
     <script type="text/javascript" src="jquery.countdown.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="phonegap.js"></script>
 
 
     <script>
+
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
             i[r] = i[r] || function () {
@@ -591,8 +595,8 @@
 
         function onDeviceReady() {
 
-            gaPlugin = window.plugins.gaPlugin;
-            gaPlugin.init(successHandler, errorHandler, "UA-29871786-2", 10);
+//            gaPlugin = window.plugins.gaPlugin;
+  //          gaPlugin.init(successHandler, errorHandler, "UA-29871786-2", 10);
 
             navigator.geolocation.getCurrentPosition(
                 successCallback,
@@ -605,18 +609,6 @@
 
         }
 
-
-
-
-        // web
-        navigator.geolocation.getCurrentPosition(
-            successCallback,
-            errorCallback_highAccuracy, {
-                maximumAge: 60000,
-                timeout: 5000,
-                enableHighAccuracy: true
-            }
-        );
 
 
     </script>
