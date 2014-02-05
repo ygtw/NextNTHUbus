@@ -48,6 +48,8 @@
             $('#' + id).removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function () {
                 $(this).removeClass();
             });
+            $('#'+id+"TBhead").append('<img src="gps.png" width="20px" />')
+            console.log('#'+id+"TBhead")
         };
 
 
@@ -643,8 +645,8 @@
 
                 <thead>
                     <tr class="ui-bar-d">
-                        <th style="width:50%">校門口 Gate</th>
-                        <th>台積館 TSMC</th>
+                        <th id="GATECDownTBhead"style="width:50%">校門口 Gate</th>
+                        <th id="TSMCCDownTBhead">台積館 TSMC</th>
 
                     </tr>
                 </thead>
@@ -689,7 +691,8 @@
         </div>
         <!-- /content -->
 
-        <div data-role="footer" class="jqm-footer" data-theme="d" style="">
+        <div data-role="footer" class="jqm-footer"  data-theme="d" style="">
+
             <hr data-theme="d" />
             <p>Next NTHU Bus.</p>
         </div>
