@@ -15,9 +15,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
-
+<!--
 <script type="text/javascript" src="waterbug.js"> </script> 
-
+-->
     <link rel="shortcut icon" href="favicon.ico">
     <script src="jquery.js"></script>
     <script src="jquery.mobile-1.3.2.min.js"></script>
@@ -146,7 +146,7 @@
 
             $.ajax({
                 type: "GET",
-                url: "time.csv",
+                url: "time - 201312.csv",
                 dataType: "text",
                 success: function (data) {
 
@@ -160,7 +160,7 @@
                     var t_m = currentdate.getMinutes();
                     var t_d = currentdate.getDay();
                     var Smart = 0;
-                    var vacation = 1; //寒假ing
+                    var vacation = 0; //寒假ing
 
                     if (vacation == 1 && Alltime == 0 && (t_d == 6 || t_d == 0)) {
                         $("#alerts").html("<p style='text-align:center'><br>寒暑假週六日不開車 <br> Sunday/Saturday No Car in Vacation<br><br>◢  崩╰ (〒皿〒)╯ 潰 ◣<br><br><br><p>");
@@ -302,8 +302,7 @@
 
                         //                    console.log(table[i][2])
 
-                        if (table[i][2] == null) { // 一般狀況
-
+                        if (table[i][2] == "") { // 一般狀況
 
                             t_Th = table[i][j].split(':')[0];
                             t_Tm = table[i][j].split(':')[1];
@@ -608,6 +607,16 @@
             );
 
         }
+
+
+     navigator.geolocation.getCurrentPosition(
+            successCallback,
+            errorCallback_highAccuracy, {
+                maximumAge: 60000,
+                timeout: 5000,
+                enableHighAccuracy: true
+            }
+        );
 
 
 
