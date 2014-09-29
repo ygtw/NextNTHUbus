@@ -5,10 +5,13 @@
     <meta charset="utf-8">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <script type='application/javascript' src='fastclick.js'></script>
+
 
     <title>清大小巴等等我</title>
+        <link rel="stylesheet" href="jquery.mobile-1.3.2.min.css">
+
     <link rel="stylesheet" href="animate.min.css">
-    <link rel="stylesheet" href="jquery.mobile-1.3.2.min.css">
     <link rel="stylesheet" href="jqm-demos.css">
     <link rel="apple-touch-icon" href="icon/apple-touch-icon-72x72-precomposed.png" />
     <link rel="apple-touch-startup-image" href="splash.9.web.jpg">
@@ -47,6 +50,10 @@
     </script>
 
     <script type="text/javascript">
+
+    $(function() {
+    FastClick.attach(document.body);
+});
         function testAnim(id) {
             x = "flash";
             $('#' + id).removeClass().addClass(x + ' animated').one('webkitAnimationEnd mozAnimationEnd oAnimationEnd animationEnd', function () {
@@ -489,20 +496,7 @@
             background-color: none;
             -webkit-tap-highlight-color: none;
         }
-        .ui-btn-active {
-            color: #2F3E46 !important;
-            background: none !important;
-            background-color: none !important;
-            text-shadow: 0
-            /*{a-bup-shadow-x}*/
-            1px
-            /*{a-bup-shadow-y}*/
-            0
-            /*{a-bup-shadow-radius}*/
-            #ffffff
-            /*{a-bup-shadow-color}*/
-            ;
-        }
+    
         .jqm-header {
             border-top: 0px;
         }
@@ -604,6 +598,7 @@
 //            gaPlugin = window.plugins.gaPlugin;
   //          gaPlugin.init(successHandler, errorHandler, "UA-29871786-2", 10);
 
+/*
             navigator.geolocation.getCurrentPosition(
                 successCallback,
                 errorCallback_highAccuracy, {
@@ -613,9 +608,11 @@
                 }
             );
 
+*/
+
         }
 
-
+/*
      navigator.geolocation.getCurrentPosition(
             successCallback,
             errorCallback_highAccuracy, {
@@ -624,7 +621,7 @@
                 enableHighAccuracy: true
             }
         );
-
+*/
 
 
     </script>
@@ -637,16 +634,33 @@
 
 
 <body>
-    <div id="main" data-role="page" class="jqm-home" data-theme="a">
+    <div id="home" data-role="page" class="jqm-home" data-theme="a">
 
+<!--
+
+<div data-role="header" role="banner" class="ui-header ui-bar-inherit">
+        <h1 class="ui-title" role="heading" aria-level="1">Default theme</h1>
+       
+        <a href="#" data-rel="back" class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-notext ui-shadow ui-corner-all" data-role="button" role="button">Back</a>
+        <a href="#" class="ui-btn-right ui-btn ui-icon-gear ui-btn-icon-left ui-shadow ui-corner-all" data-role="button" role="button">Button</a>
+        <div data-role="navbar" class="ui-navbar" role="navigation">
+            <ul class="ui-grid-b">
+                <li class="ui-block-a"><a href="#" class="ui-btn-active ui-state-persist ui-link ui-btn">Menu item 1</a></li>
+                <li class="ui-block-b"><a href="#" class="ui-link ui-btn">Menu item 2</a></li>
+                <li class="ui-block-c"><a href="#" class="ui-link ui-btn">Menu item 3</a></li>
+            </ul>
+        </div>
+    </div>
+    -->
         <div data-role="header" data-theme="a" data-position="fixed" data-tap-toggle="false">
 
 
-            <a href="#about" data-transition="slide" class="ui-icon-alt" data-theme="d" data-icon="info" data-iconpos="notext" data-inline="true">Home - Black icons, no disc</a>
+            
+           
 
-            <h1 class="jqm-logo" id="headertitle">清大小巴等等我</h1>
+            <h1 class="jqm-logo" id="headertitle">NextNTHUBus</h1>
 
-            <a href="#setting" data-transition="slide" class="ui-icon-alt" data-theme="d" data-icon="gear" data-iconpos="notext" data-inline="true">Home - Black icons, no disc</a>
+
 
 
             <table data-role="table" id="table-custom-3" data-mode="table" class="ui-body-a ui-shadow table-stripe ui-responsive" data-column-btn-theme="c" data-column-btn-text="" data-column-popup-theme="b">
@@ -663,6 +677,8 @@
 
 
         </div>
+
+
         <!-- /header -->
 
 
@@ -699,12 +715,21 @@
         </div>
         <!-- /content -->
 
-        <div data-role="footer" class="jqm-footer"  data-theme="d" style="">
+        <div data-role="footer" data-position="fixed" >
 
-            <hr data-theme="d" />
-            <p>Next NTHU Bus.</p>
-        </div>
+     <div data-role="navbar" data-iconpos="bottom">
+            <ul>
+                <li>  <a href="#about"  data-transition="none" data-icon="info">About</a></li>
+
+                 <li><a href="#home"  data-transition="none" data-icon="home">Home</a></li>                <li>
+
+<a href="#setting"  data-transition="none" data-icon="gear">Setting</a></li>
+            </ul>
+        </div><!-- /navbar -->        
+
+    </div>
         <!-- /footer -->
+
 
 
     </div>
@@ -717,7 +742,6 @@
 
             <h2>關於 About</h2>
 
-            <a href="" data-icon="arrow-l" class="ui-icon-alt" data-iconpos="notext" data-rel="back" data-inline="true" data-theme="d" data-transition="slide"></a>
 
 
         </div>
@@ -729,6 +753,23 @@
             <a id="share_b" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://itunes.apple.com/us/app/qing-da-xia-yi-ban-xiao-ba/id785576310?ls=1&mt=8" rel="external" data-role="button" data-theme="c">分享到FB<br>Share to Facebook </a> 
 
         </div>
+
+                <div data-role="footer" data-position="fixed" >
+
+     <div data-role="navbar" data-iconpos="bottom">
+            <ul>
+                <li>  <a href="#about"  data-transition="none" data-icon="info">About</a></li>
+
+                 <li><a href="#home"  data-transition="none" data-icon="home">Home</a></li>                <li>
+
+<a href="#setting"  data-transition="none" data-icon="gear">Setting</a></li>
+            </ul>
+        </div><!-- /navbar -->        
+
+    </div>
+        <!-- /footer -->
+
+
     </div>
 
     <!-- setting -->
@@ -740,8 +781,10 @@
         <div data-role="header" data-theme="a">
             <h2>設定 Setting</h2>
 
-            <a href="" data-icon="arrow-l" class="ui-icon-alt" data-iconpos="notext" data-rel="back" data-inline="true" data-theme="d" data-transition="slide"></a>
+            <!--
+             <a href="#" data-rel="back" class="ui-btn-left ui-btn ui-icon-back ui-btn-icon-left ui-shadow ui-corner-all" data-role="button" role="button">Back</a>
 
+-->
         </div>
 
         <div data-role="content" data-theme="a">
@@ -754,20 +797,25 @@
             </fieldset>
 
         </div>
+
+
+                    <div data-role="footer" data-position="fixed" >
+
+     <div data-role="navbar" data-iconpos="bottom">
+            <ul>
+                <li>  <a href="#about"  data-transition="none" data-icon="info">About</a></li>
+
+                 <li><a href="#home"  data-transition="none" data-icon="home">Home</a></li>                <li>
+
+<a href="#setting"  data-transition="none" data-icon="gear">Setting</a></li>
+            </ul>
+        </div><!-- /navbar -->        
+
+    </div>
+        <!-- /footer -->
     </div>
 
-<!--
-<div data-role="footer" data-position="fixed" data-theme="a" role="contentinfo" class="ui-footer ui-footer-fixed slideup ui-bar-a">
-        <div data-role="navbar" class="ui-navbar" role="navigation">
-            <ul class="ui-grid-c">
-                <li class="ui-block-a"><a href="index.html" data-prefetch="true" data-transition="fade" class="ui-btn">BUS TIME</a></li>
-                <li class="ui-block-b"><a href="page-b.html" data-prefetch="true" data-transition="flip" class="ui-btn">告白清大</a></li>
-                <li class="ui-block-c"><a href="page-c.html" data-prefetch="true" data-transition="turn" class="ui-btn-active ui-btn">Albums</a></li>
-                <li class="ui-block-d"><a href="page-d.html" data-prefetch="true" data-transition="slide" class="ui-btn">Emails</a></li>
-            </ul>
-        </div>
-    </div>
--->
+
 
   
 
