@@ -35,7 +35,7 @@
 
     <!-- Customize your app and platform with the preference element. -->
 <!--    <preference name="phonegap-version"           value="all" />  -->        <!-- all: current version of PhoneGap -->
-    <preference name="phonegap-version" value="3.5.0" />
+    <preference name="phonegap-version" value="3.3.0" />
 
     <preference name="orientation"                value="portrait" />        <!-- all: default means both landscape and portrait are enabled -->
     <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
