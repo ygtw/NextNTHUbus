@@ -158,7 +158,7 @@
                 success: function (data) {
 
                     var table = CSVToArray(data)
-                    //   console.log(table)
+                       console.log(table)
                     var count = 0; //Gate count
                     var Tcount = 0; //TSMC count
                     var currentdate = new Date();
@@ -183,12 +183,13 @@
                     if (t_d == 6 && Alltime == 0) { //列出週六所有車
                         var tempstring = "<tr>";
 
-                        for (var i = 0; i < table.length - 1; i++) {
+                        for (var i = 0; i < table.length ; i++) {
+                           // console.log(table[i][0])
 
-                            if (t_d != table[i][3]) continue;
+                            if (table[i][0].indexOf("六")<0) continue;
 
-                            tempstring = tempstring + "<td>" + table[i][0] + "</td>";
-                            tempstring = tempstring + "<td>" + table[i][1] + "</td>";
+                            tempstring = tempstring + "<td>" + table[i][0].substring(0,5) + "</td>";
+                            tempstring = tempstring + "<td>" + table[i][1].substring(0,5) + "</td>";
 
                             tempstring = tempstring + "</tr>";
 
@@ -203,7 +204,9 @@
 
 
                     /// 開始讀週一 ~ 五的時間
-                    for (var i = 0; i < table.length - 1; i++) {
+                    for (var i = 0; i < table.length; i++) 
+                    {
+
 
                         var tempstring = "<tr>";
 
@@ -214,12 +217,12 @@
                         var j = 0; // col
 
 
-                        // console.log(table[i][j])
+                       //  console.log(table[i][j])
 
-                        t_Th = table[i][j].split(':')[0];
-                        t_Tm = table[i][j].split(':')[1];
+                        t_Th = table[i][j].substring(0,5).split(':')[0];
+                        t_Tm = table[i][j].substring(0,5).split(':')[1];
 
-                            if(table[i][3] == 9) Bbus = "<br>大巴 Big Bus"
+                            if(table[i][j].indexOf("大")>0) Bbus = "<br>大巴 Big Bus"
                                 else Bbus = ""
 
 
@@ -233,12 +236,12 @@
 
 
 
-                            if (table[i][3] == 6 && Alltime) is6 = "<br>週一 ~ 週六 <BR>Monday-Saturday"
+                            if (table[i][j].indexOf("六") >0 && Alltime) is6 = "<br>週一 ~ 週六 <BR>Monday-Saturday"
                             else is6 = "";
 
 
                             if (table[i][2] != "s" && table[i][2] != "e") // 非熱門時段
-                                tempstring = tempstring + "<td >" + table[i][j] + is6 +Bbus +  "</td>";
+                                tempstring = tempstring + "<td >" + table[i][j].substring(0,5) + is6 +Bbus +  "</td>";
 
 
 
@@ -314,12 +317,13 @@
 
                         var j = 1; // end time
 
-                        //                    console.log(table[i][2])
+                                           // console.log(table[i][j])
+                                           console.log(table[i][2])
 
-                        if (table[i][2] == "") { // 一般狀況
+                        if (table[i][2] == "" || table[i][2] == undefined ) { // 一般狀況
 
-                            t_Th = table[i][j].split(':')[0];
-                            t_Tm = table[i][j].split(':')[1];
+                            t_Th = table[i][j].substring(0,5).split(':')[0];
+                            t_Tm = table[i][j].substring(0,5).split(':')[1];
 
                             var date1 = new Date(currentdate.getFullYear(), currentdate.getMonth(), currentdate.getDate(), t_h, t_m); // 9:00 AM
                             var date2 = new Date(currentdate.getFullYear(), currentdate.getMonth(), currentdate.getDate(), t_Th, t_Tm); // 5:00 PM
@@ -327,7 +331,12 @@
 
 
                             if (date2 > date1 || Alltime == 1) { //avaliable
-                                tempstring = tempstring + "<td>" + table[i][j]+Bbus + "</td>";
+
+
+                            if(table[i][j].indexOf("大")>0) Bbus = "<br>大巴 Big Bus"
+                                else Bbus = ""
+
+                                tempstring = tempstring + "<td>" + table[i][j].substring(0,5)+Bbus + "</td>";
 
 
 
@@ -593,12 +602,35 @@
          //
         var gaPlugin;
 
+    function onDeviceReady() {
+        checkConnection();
+    }
+
+        function checkConnection() {
+            var networkState = navigator.connection.type;
+
+            var states = {};
+            states[Connection.UNKNOWN]  = 'Unknown connection';
+            states[Connection.ETHERNET] = 'Ethernet connection';
+            states[Connection.WIFI]     = 'WiFi connection';
+            states[Connection.CELL_2G]  = 'Cell 2G connection';
+            states[Connection.CELL_3G]  = 'Cell 3G connection';
+            states[Connection.CELL_4G]  = 'Cell 4G connection';
+            states[Connection.CELL]     = 'Cell generic connection';
+            states[Connection.NONE]     = 'No network connection';
+
+            alert('Connection type: ' + states[networkState]);
+        }
+
+
+      
+/*
         function onDeviceReady() {
 
 //            gaPlugin = window.plugins.gaPlugin;
   //          gaPlugin.init(successHandler, errorHandler, "UA-29871786-2", 10);
 
-/*
+
             navigator.geolocation.getCurrentPosition(
                 successCallback,
                 errorCallback_highAccuracy, {
@@ -608,10 +640,10 @@
                 }
             );
 
-*/
+
 
         }
-
+*/
 /*
      navigator.geolocation.getCurrentPosition(
             successCallback,
@@ -634,6 +666,21 @@
 
 
 <body>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'nextnthubus';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
     <div id="home" data-role="page" class="jqm-home" data-theme="a">
 
 <!--
@@ -727,6 +774,7 @@
                  <li><a href="#classtime"  data-transition="none" data-icon="grid">ClassTime</a></li>               
 
 
+
                   <li>
 
 <a href="#setting"  data-transition="none" data-icon="gear">Setting</a></li>
@@ -757,6 +805,19 @@
             <p>In a boring nitgt, the author found that we use iOS device in NTHU ISS. We need a school bus software, so the author write it in 5 hours.</p>
             <a id="rate_b" href="https://itunes.apple.com/us/app/qing-da-xia-yi-ban-xiao-ba/id785576310?ls=1&mt=8" target="_blank" rel="external" data-role="button" data-theme="c">喜歡請評分 Please Rate  </a>
             <a id="share_b" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://itunes.apple.com/us/app/qing-da-xia-yi-ban-xiao-ba/id785576310?ls=1&mt=8" rel="external" data-role="button" data-theme="c">分享到FB<br>Share to Facebook </a> 
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'nextnthubus';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
 
         </div>
 
