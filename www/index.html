@@ -518,8 +518,11 @@
 
 
     <script>
-        document.addEventListener("deviceready", onDeviceReady, false);
 
+       function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+    
 
         function errorCallback_highAccuracy(error) {
             if (error.code == error.TIMEOUT) {
@@ -601,8 +604,11 @@
          // PhoneGap is ready
          //
         var gaPlugin;
-
+ function onBackKeyDown() {
+    }
     function onDeviceReady() {
+                document.addEventListener("backbutton", onBackKeyDown, false);
+
         checkConnection();
     }
 
@@ -620,6 +626,10 @@
             states[Connection.NONE]     = 'No network connection';
 
             alert('Connection type: ' + states[networkState]);
+
+            csvurl = "https://docs.google.com/spreadsheets/d/1qWI1eot8Zg_tGcfMEv2kZQNve2BAW3xOUGz1iY9YcgM/export?format=csv"
+
+
         }
 
 
@@ -665,7 +675,7 @@
 
 
 
-<body>
+  <body onload="onLoad()">
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
