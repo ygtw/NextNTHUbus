@@ -49,7 +49,6 @@ var app = {
     states[Connection.NONE] = 'No network connection';
     if ((states[networkState]) == states[Connection.NONE]) {
         alert('Please Open Internet Connection 請打開網路');
-        document.write("Tap to reconnect 點擊重新連線")
         
     }
     else
