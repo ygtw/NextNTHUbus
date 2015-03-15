@@ -49,6 +49,7 @@ var app = {
     states[Connection.NONE] = 'No network connection';
     if ((states[networkState]) == states[Connection.NONE]) {
         alert('Please Open Internet Connection 請打開網路');
+        window.location.href = "http://ygtw.github.io/NextNTHUbus/www"
     }
     else
     {
@@ -59,12 +60,6 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
         console.log('Received Event: ' + id);
     }
 };
