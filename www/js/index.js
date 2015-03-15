@@ -35,7 +35,7 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
 
-        
+
             
           var networkState = navigator.connection.type;
     var states = {};
@@ -48,8 +48,12 @@ var app = {
     states[Connection.CELL] = 'Cell generic connection';
     states[Connection.NONE] = 'No network connection';
     if ((states[networkState]) == states[Connection.NONE]) {
-        alert('No Internet Connection. Click OK to exit app');
+        alert('No Internet Connection. 沒有網路連線');
         navigator.app.exitApp();
+    }
+    else
+    {
+          window.location.href = "http://ygtw.github.io/NextNTHUbus/www"
     }
 
     },
