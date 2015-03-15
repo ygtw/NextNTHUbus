@@ -47,7 +47,6 @@ var app = {
     states[Connection.CELL_4G] = 'Cell 4G connection';
     states[Connection.CELL] = 'Cell generic connection';
     states[Connection.NONE] = 'No network connection';
-    alert(states[Connection.UNKNOWN])
     if ((states[networkState]) == states[Connection.NONE]) {
         alert('No Internet Connection. 沒有網路連線');
         navigator.app.exitApp();
