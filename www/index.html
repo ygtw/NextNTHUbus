@@ -1,15 +1,45 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="refresh" content="1;url=http://ygtw.github.io/NextNTHUbus/www">
-        <script type="text/javascript">
-            window.location.href = "http://ygtw.github.io/NextNTHUbus/www"
-        </script>
-        <title>Page Redirection</title>
-    </head>
-    <body>
-        <!-- Note: don't tell people to `click` the link, just tell them that it is a link. -->
-        If you are not redirected automatically, follow the <a href='http://ygtw.github.io/NextNTHUbus/www'>link to example</a>
-    </body>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cordova Online Example</title>
+ 
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Call onDeviceReady when Cordova is loaded.
+    //
+    // At this point, the document has loaded but cordova-x.x.x.js has not.
+    // When Cordova is loaded and talking with the native device,
+    // it will call the event `deviceready`.
+    //
+    function onLoad() {
+        document.addEventListener("online", onOnline, false);
+        document.addEventListener("offline", onOffline, false);
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+
+    // Cordova is loaded and it is now safe to make calls Cordova methods
+    //
+    function onDeviceReady() {
+        console.log("onDeviceReady");
+    }
+
+    // Handle the online event
+    //
+    function onOnline() {
+        console.log("onOnline");
+        window.location.href = "http://ygtw.github.io/NextNTHUbus/www"
+
+    }
+
+    function onOffline() {
+        console.log("onOffline");
+        navigator.notification.alert("Sorry, you are offline.", function() {}, "Offline!");
+        alert("Open Your Network")
+    }
+        
+    </script>
+  </head>
+  <body onload="onLoad()">
+  </body>
 </html>
