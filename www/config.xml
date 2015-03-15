@@ -64,6 +64,7 @@
 
     <plugin name="Geolocation" value="CDVLocation" />
     <gap:plugin name="com.adobe.plugins.gaplugin" />
+<gap:plugin name="org.apache.cordova.network-information" version="0.2.7" />
 
 
     <!-- Define app icon for each platform. -->
