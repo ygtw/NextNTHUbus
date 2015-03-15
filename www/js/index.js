@@ -48,8 +48,8 @@ var app = {
     states[Connection.CELL] = 'Cell generic connection';
     states[Connection.NONE] = 'No network connection';
     if ((states[networkState]) == states[Connection.NONE]) {
-        alert('No Internet Connection. 沒有網路連線');
-        navigator.app.exitApp();
+        alert('Please Open Internet Connection 請打開網路');
+        window.location.href = "http://ygtw.github.io/NextNTHUbus/www"
     }
     else
     {
