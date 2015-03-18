@@ -99,13 +99,7 @@ var clicked = false;
 function sendhelp (argument) {
     // body...
 
-       $('#helpsendbtn').click(function() {
-    if(clicked === false) {
-        $(this).addClass('ui-disabled');
-        clicked = true;
-//        alert('Button is now disabled');
-    } 
-});
+
 
     var TestObject = Parse.Object.extend("TestObject");
     var testObject = new TestObject();
@@ -167,6 +161,16 @@ function sendhelp (argument) {
         }
 
         $(document).ready(function () {
+
+       $('#helpsendbtn').click(function() {
+    if(clicked === false) {
+        $(this).addClass('ui-disabled');
+        clicked = true;
+//        alert('Button is now disabled');
+    } 
+});
+
+
             testAnim();
             if (/Android|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                 // some code..
@@ -871,7 +875,10 @@ document.getElementsByTagName("head")[0].appendChild(s);
         <option value="3">人社院 HSS</option>
         <option value="4">台積館 TSMC</option>
     </select>
+    <input placeholder="Say something..." />
     <a href="#" id="helpsendbtn" data-role="button" data-theme="c" onclick="sendhelp()" data-icon="delete">送出 Send</a>
+
+    我們會回報狀況給學校 We will tell school the situation.
 
 </div>
 </form>  
@@ -888,11 +895,10 @@ document.getElementsByTagName("head")[0].appendChild(s);
             <ul>
                 <li>  <a href="#about"  data-transition="none" data-icon="info">About</a></li>
 
+                 <li><a href="#help"  data-transition="none" data-icon="alert"> HELP</a></li>
+
+
                  <li><a href="#home"  data-transition="none" data-icon="grid">Home</a></li>              
-                 <li><a href="#help"  data-transition="none" data-icon="alert"> HELP
-
-
-</a></li>
 
                  <li><a href="#classtime"  data-transition="none" data-icon="bars">ClassTime</a></li>               
 
@@ -939,11 +945,14 @@ document.getElementsByTagName("head")[0].appendChild(s);
             <ul>
                 <li>  <a href="#about"  data-transition="none" data-icon="info">About</a></li>
 
-                 <li><a href="#home"  data-transition="none" data-icon="grid">Home</a></li>              
+                             
                  <li><a href="#help"  data-transition="none" data-icon="alert"> HELP
 
 
 </a></li>
+
+
+  <li><a href="#home"  data-transition="none" data-icon="grid">Home</a></li>
 
                  <li><a href="#classtime"  data-transition="none" data-icon="bars">ClassTime</a></li>               
 
@@ -993,12 +1002,15 @@ document.getElementsByTagName("head")[0].appendChild(s);
      <div data-role="navbar" data-iconpos="bottom" >
             <ul>
                 <li>  <a href="#about"  data-transition="none" data-icon="info">About</a></li>
-
-                 <li><a href="#home"  data-transition="none" data-icon="grid">Home</a></li>              
+              
                  <li><a href="#help"  data-transition="none" data-icon="alert"> HELP
 
 
 </a></li>
+
+
+
+                 <li><a href="#home"  data-transition="none" data-icon="grid">Home</a></li>
 
                  <li><a href="#classtime"  data-transition="none" data-icon="bars">ClassTime</a></li>               
 
@@ -1099,12 +1111,14 @@ document.getElementsByTagName("head")[0].appendChild(s);
      <div data-role="navbar" data-iconpos="bottom" >
             <ul>
                 <li>  <a href="#about"  data-transition="none" data-icon="info">About</a></li>
-
-                 <li><a href="#home"  data-transition="none" data-icon="grid">Home</a></li>              
+              
                  <li><a href="#help"  data-transition="none" data-icon="alert"> HELP
 
 
 </a></li>
+
+
+                 <li><a href="#home"  data-transition="none" data-icon="grid">Home</a></li>
 
                  <li><a href="#classtime"  data-transition="none" data-icon="bars">ClassTime</a></li>               
 
