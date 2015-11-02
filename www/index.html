@@ -261,7 +261,7 @@ function sendhelp (argument) {
                             if (table[i][0].indexOf("六")<0) continue;
 
                             tempstring = tempstring + "<td>" + table[i][0].substring(0,5) + "</td>";
-                            tempstring = tempstring + "<td>" + table[i][1].substring(0,5) + "</td>";
+                            tempstring = tempstring + "<td>" + table[i][4].substring(0,5) + "</td>";
 
                             tempstring = tempstring + "</tr>";
 
@@ -283,8 +283,9 @@ function sendhelp (argument) {
                         var tempstring = "<tr>";
 
                         var noCar = 0;
-                       var Bbus = ""
+                       var Bbus = "";
 
+                       var Su = "";
 
                         var j = 0; // col
 
@@ -296,7 +297,8 @@ function sendhelp (argument) {
 
                             if(table[i][j].indexOf("大")>0) Bbus = "<br>大巴 Big Bus"
                                 else Bbus = ""
-
+                           if(table[i][1].indexOf(":")>0) Su = "<br>蘇貓 Su/Restaurants"
+                                else Su = ""
 
 
                         var date1 = new Date(currentdate.getFullYear(), currentdate.getMonth(), currentdate.getDate(), t_h, t_m); // 9:00 AM
@@ -313,7 +315,7 @@ function sendhelp (argument) {
 
 
                             if (table[i][2] != "s" && table[i][2] != "e") // 非熱門時段
-                                tempstring = tempstring + "<td >" + table[i][j].substring(0,5) + is6 +Bbus +  "</td>";
+                tempstring = tempstring + "<td >" + table[i][j].substring(0,5) + is6 +Bbus + Su +"</td>";
 
 
 
@@ -376,7 +378,7 @@ function sendhelp (argument) {
 
 
 
-                        } else if (table[i][1]) { // no car
+                        } else if (table[i][4]) { // no car
                             tempstring = tempstring + "<td style=' color:darkgrey'>" + table[i][j] + "</td>";
                             noCar++;
                             //  $("#tb").append("<td style='background:lightgray'>"+table[i][j]+"</td>");
@@ -387,12 +389,11 @@ function sendhelp (argument) {
 
                         //////////////////////////////////////////////////////
 
-                        var j = 1; // end time
+                        var j = 4; // end time
 
                                            // console.log(table[i][j])
-                                           console.log(table[i][2])
-
-                        if (table[i][2] == "" || table[i][2] == undefined ) { // 一般狀況
+                                        
+                        if (  1 ) { // 一般狀況
 
                             t_Th = table[i][j].substring(0,5).split(':')[0];
                             t_Tm = table[i][j].substring(0,5).split(':')[1];
