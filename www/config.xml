@@ -5,8 +5,8 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "bstn.next.nthu.bus"
         version   = "1.1.8"
-        versionCode="225"
-        androidversionCode="225">
+        versionCode="226"
+        androidversionCode="226">
 
     <name>清大小巴等等我</name>
 
