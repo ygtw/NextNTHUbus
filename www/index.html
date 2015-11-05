@@ -363,17 +363,6 @@ function sendhelp (argument) {
 
                             }
 
-                            if (table[i][2] == "s") {
-                                tempstring = tempstring + "<td colspan='2' style=''>" + table[i][j] + "<br> 機動發車開始<BR>SmartTime Start </td>";
-
-
-                            }
-
-                            if (table[i][2] == "e") {
-                                tempstring = tempstring + "<td colspan='2' style=''>" + table[i][j] + "<br> 機動時段結束<BR>SmartTime End </td>";
-
-                            }
-
 
 
 
@@ -392,7 +381,7 @@ function sendhelp (argument) {
 
                                            // console.log(table[i][j])
                                         
-                        if (  1 ) { // 一般狀況
+                        if (  table[i][j].length>1 ) { // 一般狀況
 
                             t_Th = table[i][j].substring(0,5).split(':')[0];
                             t_Tm = table[i][j].substring(0,5).split(':')[1];
