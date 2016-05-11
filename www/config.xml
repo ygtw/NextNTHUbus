@@ -4,9 +4,9 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "bstn.next.nthu.bus"
-        version   = "1.1.6"
-        versionCode="223"
-        androidversionCode="223">
+        version   = "1.2.0"
+        versionCode="230"
+        androidversionCode="230">
 
     <name>清大小巴等等我</name>
 
