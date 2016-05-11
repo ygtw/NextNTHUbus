@@ -120,6 +120,8 @@
 
         Otherwise, you can specify specific domains:
     -->
+        <allow-navigation href="*" />
+
     <access origin="http://127.0.0.1*"/> <!-- allow local pages -->
     <access origin="*" /> 
     <!--
