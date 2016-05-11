@@ -4,9 +4,9 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "bstn.next.nthu.bus"
-        version   = "1.2.1"
-        versionCode="231"
-        androidversionCode="231">
+        version   = "1.2.2"
+        versionCode="232"
+        androidversionCode="232">
 
     <name>清大小巴等等我</name>
 
@@ -23,7 +23,7 @@
         The "device" permission is required for the 'deviceready' event.
     -->
     <feature name="http://api.phonegap.com/1.0/device" />
-  
+    <feature name="http://api.phonegap.com/1.0/geolocation"/>
 
     <feature name="NetworkStatus">
     <param name="ios-package" value="CDVConnection" />
@@ -61,8 +61,6 @@
         <gap:plugin name="Example" />
         A list of available plugins are available at https://build.phonegap.com/docs/plugins
     -->
-
-    <plugin name="Geolocation" value="CDVLocation" />
     <gap:plugin name="com.adobe.plugins.gaplugin" />
 <gap:plugin name="org.apache.cordova.network-information" version="0.2.7" />
 
